@@ -173,7 +173,6 @@
         }
     </style>
     <!-- Include original JavaScript functionality here -->
-    <script src="https://unpkg.com/visitor.js"></script>
 </head>
 <body>
     <!-- Add toggle button at bottom right -->
@@ -264,7 +263,7 @@
                 <div class="stats">
                     <div class="stat-item">
                         <h3>Visitors</h3>
-                        <p id="visits">0</p>
+                        <p><img src="https://visitor-badge.io/badge?page_id=jicoing.komlalebu" alt="visitor count"></p>
                     </div>
                     <div class="stat-item">
                         <h3>Likes</h3>
@@ -274,35 +273,8 @@
             </div>
         </div>
     </div>
-    <script>
-        // Initialize Visitor (check docs for correct method)
-        window.Visitor = visitor(); // or new Visitor();
+  
 
-        function updateCounts() {
-            // Use camelCase if required (e.g., getMetric)
-            const visits = window.Visitor.getMetric('users'); 
-            const likes = window.Visitor.getMetric('likes');
-
-            document.getElementById('visits').textContent = visits || 0;
-            document.getElementById('visitlike').textContent = likes || '0';
-        }
-
-        // Update on load
-        window.addEventListener('DOMContentLoaded', updateCounts);
-    </script>
-    <style>
-        .stat-item {
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .stat-item p {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            letter-spacing: -1px;
-        }
-    </style>
 
     
 
