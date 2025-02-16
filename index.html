@@ -171,6 +171,94 @@
             align-items: center;
             justify-content: center;
         }
+
+        :root {
+        --neon: #0ff; /* Default neon cyan (customize to any neon color) */
+        }
+
+        .cyber-button {
+            /* Modified properties */
+            width: 100%;
+            display: block;
+            text-align: center;
+            
+            /* Existing properties */
+            border-radius: 15px;
+            text-decoration: none;
+            background: transparent;
+            border: 2px solid var(--neon);
+            color: var(--neon);
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        /* Animated Scanning Border */
+        .cyber-button::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background: transparent;
+            border: 2px solid var(--neon);
+            animation: scan 3s linear infinite;
+            clip-path: polygon(
+                10% 0%,
+                100% 0,
+                100% 70%,
+                90% 100%,
+                0 100%,
+                0 30%
+            );
+        }
+
+        /* CRT Screen Effect */
+        .cyber-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 255, 255, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        /* Hover Effects */
+        .cyber-button:hover {
+            background: var(--neon);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon);
+        }
+
+        /* Scan Animation */
+        @keyframes scan {
+            0% {
+                clip-path: inset(0 0 95% 0);
+            }
+            100% {
+                clip-path: inset(95% 0 0 0);
+            }
+        }
+
+        /* Text Positioning */
+        .cyber-button span {
+            position: relative;
+            z-index: 1; /* Ensure text stays above effects */
+        }
+        
     </style>
     <!-- Include original JavaScript functionality here -->
 </head>
@@ -224,6 +312,18 @@
                         <p>Prototyping, User Research</p>
                     </div>
                 </div>
+                <!-- In the skills card section -->
+                <div class="skill-item" style="justify-content: center; width: 100%;">
+                    <a href="https://www.upwork.com/freelancers/~01d10e6a26d427a525" 
+                    target="_blank" 
+                    class="cyber-button"
+                    style="text-decoration: none;">
+                        <span>Upwork</span>
+                    </a>
+                </div>
+
+                
+                
                 
             </div>
         </div>
