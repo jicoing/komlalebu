@@ -273,6 +273,15 @@
             </div>
         </div>
     </div>
+    <script>
+        // Visitor counter using CountAPI
+        fetch('https://api.countapi.xyz/hit/komlalebu/github-visits')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visits').textContent = data.value;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
 
     <!-- Include original JavaScript code here -->
     <script>
