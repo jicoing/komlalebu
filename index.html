@@ -275,40 +275,32 @@
         </div>
     </div>
     <script>
-        // Include visitor.js
-        window.Visitor = visitor();
+        // Initialize Visitor (check docs for correct method)
+        window.Visitor = visitor(); // or new Visitor();
 
-        // Set initial count (replace 0 with current count)
-        document.getElementById('visits').textContent = '0';
-
-        // Function to update counts whenever the page loads
         function updateCounts() {
-            const visits = window.Visitor.getmetric('users');
-            const likes = window.Visitor.getmetric('likes');
+            // Use camelCase if required (e.g., getMetric)
+            const visits = window.Visitor.getMetric('users'); 
+            const likes = window.Visitor.getMetric('likes');
 
-            document.getElementById('visits').textContent = visits;
-            document.getElementById('visitlike').textContent = likes;
+            document.getElementById('visits').textContent = visits || 0;
+            document.getElementById('visitlike').textContent = likes || '0';
         }
 
-        // Call initial count setup once
-        if (window.Visitor) {
-            updateCounts();
-        }
-
-        // Update counts every time the page loads
+        // Update on load
         window.addEventListener('DOMContentLoaded', updateCounts);
     </script>
     <style>
         .stat-item {
-
+            margin-bottom: 10px;
             text-align: left;
         }
 
-        p.stat-item p {
+        .stat-item p {
             font-size: 24px;
             font-weight: bold;
             color: #333;
-            letter-spacing: -1px; /* Narrow the text */
+            letter-spacing: -1px;
         }
     </style>
 
