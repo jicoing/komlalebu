@@ -128,10 +128,55 @@
                 grid-template-columns: 1fr;
             }
         }
+        :root {
+            --bg: #ffffff;
+            --text: #212529;
+            --card-bg: #ffffff;
+            --primary: #2A5C82;
+            --border: #e0e0e0;
+        }
+
+        .dark-mode {
+            --bg: #121212;
+            --text: #e0e0e0;
+            --card-bg: #1E1E1E;
+            --primary: #38A3A5;
+            --border: #2d2d2d;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
     <!-- Include original JavaScript functionality here -->
 </head>
 <body>
+    <!-- Add toggle button at bottom right -->
+    <button class="theme-toggle" onclick="toggleDarkMode()">🌓</button>
     <div class="container">
         <header class="header">
             <img src="Komladefault.png" alt="Profile" class="profile">
@@ -222,6 +267,35 @@
     </div>
 
     <!-- Include original JavaScript code here -->
+    <script>
+        // Add dark mode functionality
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            
+            // Update button emoji
+            const toggleBtn = document.querySelector('.theme-toggle');
+            toggleBtn.textContent = isDark ? '🌙' : '🌞';
+        }
+
+        // Check for saved preference
+        window.addEventListener('load', () => {
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+            if(savedDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle').textContent = '🌙';
+            }
+            
+            // Add system preference detection
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if(!savedDarkMode && systemDark) {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
      
 </body>
 </html>
