@@ -1,0 +1,30 @@
+name: Update Counter
+
+on:
+  repository_dispatch:
+    types: [update-counter]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Increment Counter
+        run: |
+          COUNT_FILE="counter.txt"
+          if [ ! -f "$COUNT_FILE" ]; then
+            echo "0" > $COUNT_FILE
+          fi
+          COUNT=$(cat $COUNT_FILE)
+          NEW_COUNT=$((COUNT + 1))
+          echo $NEW_COUNT > $COUNT_FILE
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add counter.txt
+          git commit -m "Updated counter" || echo "No changes to commit"
+          git push
