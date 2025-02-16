@@ -274,18 +274,18 @@
         </div>
     </div>
     <script>
-    async function updateVisitorCount() {
-        try {
-            const response = await fetch('https://api.github.com/repos/jicoing/komlalebu');
-            if (!response.ok) throw new Error('Failed to fetch');
-            const data = await response.json();
-            document.getElementById("visits").textContent = data.stargazers_count;
-        } catch (error) {
-            console.error('Error fetching visitor count:', error);
-            document.getElementById("visits").textContent = '0'; // Fallback
+        async function updateVisitorCount() {
+            try {
+                const response = await fetch('https://api.github.com/repos/jicoing/komlalebu');
+                if (!response.ok) throw new Error('Failed to fetch');
+                const data = await response.json();
+                document.getElementById("visits").textContent = data.stargazers_count;
+            } catch (error) {
+                console.error('Error fetching visitor count:', error);
+                document.getElementById("visits").textContent = '0'; // Fallback
+            }
         }
-    }
-    updateVisitorCount();
+        updateVisitorCount();
     </script>
 
 
