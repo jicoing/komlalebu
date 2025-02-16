@@ -307,14 +307,17 @@
                 document.body.classList.add('dark-mode');
             }
 
-            // Visitor counter using CounterAPI
-            fetch('https://api.countapi.xyz/hit/mygithubpage/visits')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("visits").innerText = data.value;
-            })
-            .catch(error => console.error("Error fetching visitor count:", error));
+            
         });
+    </script>
+    <script>
+    // Visitor counter using CounterAPI
+    fetch('https://api.countapi.xyz/hit/jicoing.github.io/komlalebu')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("visits").innerText = data.value;
+    })
+    .catch(error => console.error("Error fetching visitor count:", error));
     </script>
 
 
