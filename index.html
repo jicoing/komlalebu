@@ -173,6 +173,7 @@
         }
     </style>
     <!-- Include original JavaScript functionality here -->
+    <script src="https://unpkg.com/visitor.js"></script>
 </head>
 <body>
     <!-- Add toggle button at bottom right -->
@@ -274,14 +275,31 @@
         </div>
     </div>
     <script>
-        // Visitor counter using CountAPI
-        fetch('https://api.countapi.xyz/hit/komlalebu/github-visits')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('visits').textContent = data.value;
-            })
-            .catch(error => console.error('Error:', error));
+        // Include visitor.js
+        window.Visitor = visitor();
+
+        // Set initial count (replace 0 with current count)
+        document.getElementById('visits').textContent = '0';
+
+        // Function to update counts whenever the page loads
+        function updateCounts() {
+            const visits = window.Visitor.getmetric('users');
+            const likes = window.Visitor.getmetric('likes');
+
+            document.getElementById('visits').textContent = visits;
+            document.getElementById('visitlike').textContent = likes;
+        }
+
+        // Call initial count setup once
+        if (window.Visitor) {
+            updateCounts();
+        }
+
+        // Update counts every time the page loads
+        window.addEventListener('DOMContentLoaded', updateCounts);
     </script>
+
+    
 
     <!-- Include original JavaScript code here -->
     <script>
