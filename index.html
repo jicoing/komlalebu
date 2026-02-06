@@ -407,6 +407,75 @@
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 568px) {
+            .modal {
+                padding: 1rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 100%;
+                width: 95%;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .modal-header {
+                margin-bottom: 1rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .close-btn {
+                font-size: 1.5rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .form-group select,
+            .form-group input,
+            .form-group textarea {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+
+            .form-group textarea {
+                min-height: 80px;
+            }
+
+            .submit-btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra small screens (iPhone 5/SE) */
+        @media (max-width: 320px) {
+            .modal-content {
+                padding: 1rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .form-group select,
+            .form-group input,
+            .form-group textarea {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
         
     </style>
     <!-- Include original JavaScript functionality here -->
