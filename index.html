@@ -1057,35 +1057,31 @@
     </div>
 </div>
 
+<!-- ✅ FIXED SCRIPT SECTION -->
 <script>
-    // ── THEME ──
+    // ── THEME FUNCTIONS ──
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         var icon  = document.querySelector('#themeToggle .toggle-icon');
         var label = document.getElementById('toggleLabel');
         if (!icon || !label) return;
-        if (theme === 'dark') { icon.textContent = '☀️'; label.textContent = 'Light'; }
-        else                  { icon.textContent = '🌙'; label.textContent = 'Dark';  }
+        if (theme === 'dark') { 
+            icon.textContent = '☀️'; 
+            label.textContent = 'Light'; 
+        } else { 
+            icon.textContent = '🌙'; 
+            label.textContent = 'Dark';  
+        }
     }
 
     function toggleTheme() {
-        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
         applyTheme(next);
         localStorage.setItem('theme', next);
     }
 
-    // Script is at bottom — DOM already parsed, bind directly
-    var themeBtn = document.getElementById('themeToggle');
-    if (themeBtn) { themeBtn.onclick = toggleTheme; }
-
-    // Restore saved or system preference
-    var savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        applyTheme('dark');
-    }
-
+    // ── MODAL FUNCTIONS ──
     function openContactModal() {
         document.getElementById('contactModal').classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -1096,22 +1092,43 @@
         document.body.style.overflow = '';
     }
 
-    window.addEventListener('click', function(e) {
-        const modal = document.getElementById('contactModal');
-        if (e.target === modal) closeContactModal();
-    });
+    // ── INITIALIZE ON DOM READY ──
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Theme toggle binding
+        var themeBtn = document.getElementById('themeToggle');
+        if (themeBtn) { 
+            themeBtn.addEventListener('click', toggleTheme); 
+        }
 
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('clientName').value;
-        const email = document.getElementById('clientEmail').value;
-        const phone = document.getElementById('clientPhone').value;
-        const type = document.getElementById('projectType').value;
-        const budget = document.getElementById('budget').value;
-        const timeline = document.getElementById('timeline').value;
-        const topic = document.getElementById('topic').value;
+        // Restore saved or system preference
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme('dark');
+        }
 
-        const body = `Hi Jayanjan,
+        // Modal: close on outside click
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('contactModal');
+            if (e.target === modal) closeContactModal();
+        });
+
+        // Contact form submission
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('clientName').value;
+                const email = document.getElementById('clientEmail').value;
+                const phone = document.getElementById('clientPhone').value;
+                const type = document.getElementById('projectType').value;
+                const budget = document.getElementById('budget').value;
+                const timeline = document.getElementById('timeline').value;
+                const topic = document.getElementById('topic').value;
+
+                const body = `Hi Jayanjan,
 
 I'd like to discuss a project with you.
 
@@ -1127,13 +1144,29 @@ ${topic}
 
 Looking forward to hearing from you!`;
 
-        window.location.href = `mailto:jicoing@gmail.com?subject=New Project Enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
+                window.location.href = `mailto:jicoing@gmail.com?subject=New Project Enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
 
-        setTimeout(() => {
-            closeContactModal();
-            document.getElementById('contactForm').reset();
-        }, 600);
+                setTimeout(() => {
+                    closeContactModal();
+                    form.reset();
+                }, 600);
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     });
+</script>
 
-    // Smooth anchor scroll for nav links
-    document.querySelectorAll('a
+</body>
+</html>
