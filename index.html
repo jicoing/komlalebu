@@ -364,7 +364,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -421,7 +421,7 @@
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
             gap: 0;
             max-width: 1000px;
             margin: 0 auto;
@@ -524,7 +524,7 @@
 
         .exp-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
             gap: 1.5rem;
             max-width: 1200px;
             margin: 3rem auto 0;
@@ -559,7 +559,7 @@
 
         .contact-channels {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
             gap: 1.5rem;
             max-width: 800px;
             margin: 0 auto 2.5rem;
@@ -741,6 +741,17 @@
             50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
         }
 
+        /* ── ENQUIRY BUTTON (contact section CTA) ── */
+        .btn-enquiry {
+            font-size: 1.05rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* ── MOBILE AVATAR (hero, small screens only) ── */
+        .mobile-avatar {
+            display: none; /* hidden on desktop */
+        }
+
         /* ══════════════════════════════════════
            RESPONSIVE — MOBILE FIRST
         ══════════════════════════════════════ */
@@ -765,6 +776,41 @@
             .hero-visual { display: none; }
             .hero p.lead { max-width: 100%; }
             .hero-actions { justify-content: center; }
+
+            /* Mobile avatar — show on tablet & below */
+            .mobile-avatar {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                justify-content: center;
+                margin-bottom: 1.4rem;
+                padding: 0.9rem 1.2rem;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 100px;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .mobile-avatar-img {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--gold);
+                flex-shrink: 0;
+            }
+            .mobile-avatar-info { text-align: left; }
+            .mobile-avatar-name {
+                font-family: 'Playfair Display', serif;
+                font-size: 0.95rem;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+            .mobile-avatar-title {
+                font-size: 0.75rem;
+                color: var(--muted);
+            }
 
             .trust-bar {
                 padding: 1.2rem 1.5rem;
@@ -797,9 +843,13 @@
 
             /* Hero */
             .hero {
-                padding: 5.5rem 1.1rem 2.5rem;
+                padding: 6rem 1.1rem 3rem;
                 min-height: auto;
             }
+            .mobile-avatar { padding: 0.7rem 1rem; gap: 0.8rem; }
+            .mobile-avatar-img { width: 42px; height: 42px; }
+            .mobile-avatar-name { font-size: 0.88rem; }
+            .mobile-avatar-title { font-size: 0.7rem; }
             .hero h1 {
                 font-size: clamp(2rem, 8.5vw, 2.6rem);
                 line-height: 1.15;
@@ -868,7 +918,7 @@
             }
             .channel-card { padding: 1.3rem 1.5rem; }
             .channel-icon { font-size: 1.7rem; margin-bottom: 0.5rem; }
-            .contact-section .btn-primary {
+            .btn-enquiry {
                 width: 100%;
                 max-width: 360px;
                 font-size: 1rem;
@@ -932,6 +982,14 @@
 <section class="hero" id="home">
     <div class="hero-grid">
         <div class="hero-text">
+            <!-- Mobile-only avatar strip -->
+            <div class="mobile-avatar">
+                <img src="Komladefault.png" alt="Jayanjan Mukherjee" class="mobile-avatar-img">
+                <div class="mobile-avatar-info">
+                    <div class="mobile-avatar-name">Jayanjan Mukherjee</div>
+                    <div class="mobile-avatar-title">Cloud Developer · Web Specialist</div>
+                </div>
+            </div>
             <span class="hero-badge">✦ AWS Certified Cloud Developer</span>
             <h1>Your Business Deserves a <em>Website That Wins</em> Clients</h1>
             <p class="lead">I build fast, professional websites and cloud-powered applications that help businesses grow — starting from ₹15,000 / $200.</p>
@@ -1110,16 +1168,7 @@
     </div>
 
     <div class="contact-channels">
-        <a href="https://wa.me/9836272250?text=Hi%20Jayanjan%2C%20I%20need%20a%20professional%20website%20for%20my%20business." class="channel-card" target="_blank">
-            <div class="channel-icon">💬</div>
-            <div class="channel-label">WhatsApp (Fastest)</div>
-            <div class="channel-value">+91 98362 72250</div>
-        </a>
-        <a href="/cdn-cgi/l/email-protection#b1dbd8d2ded8dfd6f1d6dcd0d8dd9fd2dedc" class="channel-card">
-            <div class="channel-icon">✉️</div>
-            <div class="channel-label">Email</div>
-            <div class="channel-value">jicoing@gmail.com</div>
-        </a>
+
         <a href="https://www.upwork.com/freelancers/~014ea09a359f788e11?mp_source=share" class="channel-card" target="_blank">
             <div class="channel-icon">💼</div>
             <div class="channel-label">Upwork Profile</div>
@@ -1127,7 +1176,7 @@
         </a>
     </div>
 
-    <button class="btn-primary" onclick="openContactModal()" style="font-size:1.05rem; padding: 1rem 2.5rem;">
+    <button class="btn-primary btn-enquiry" onclick="openContactModal()">
         Send a Project Enquiry →
     </button>
 </section>
