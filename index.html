@@ -563,13 +563,13 @@
             padding: 5rem 4rem;
         }
 
-        /* family.jpg background layer — fitted & more visible */
+        /* family.jpg background layer — full bleed, more visible */
         .contact-section::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('family.jpg') center center / contain no-repeat;
-            opacity: 0.38;          /* raised from 0.18 → much more visible */
+            background: url('family.jpg') center center / cover no-repeat;
+            opacity: 0.38;
             z-index: 0;
         }
 
@@ -873,9 +873,8 @@
 
             footer { padding: 2rem 1.5rem; }
 
-            /* Contact section on tablet — use cover so photo fills */
+            /* Contact section on tablet */
             .contact-section::before {
-                background-size: cover;
                 opacity: 0.35;
             }
         }
@@ -962,7 +961,6 @@
                 min-height: 480px;
             }
             .contact-section::before {
-                background-size: cover;
                 opacity: 0.32;
             }
             .contact-channels {
