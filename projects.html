@@ -74,15 +74,41 @@
         }
 
         .card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .social-links {
@@ -148,20 +174,26 @@
                 grid-template-columns: 1fr;
             }
         }
-        :root {
-            --bg: #ffffff;
-            --text: #212529;
-            --card-bg: #ffffff;
-            --primary: #2A5C82;
-            --border: #e0e0e0;
+        .dark-mode {
+            --bg: #020617;
+            --text: #F8FAFC;
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --primary: #FFD700;
+            --border: #1E293B;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent-gradient: linear-gradient(135deg, #FFD700 0%, #FFE44D 100%);
+            --neon: #00FFFF;
         }
 
-        .dark-mode {
-            --bg: #121212;
-            --text: #e0e0e0;
-            --card-bg: #1E1E1E;
-            --primary: #38A3A5;
-            --border: #2d2d2d;
+        :root {
+            --bg: #F8FAFC;
+            --text: #0F172A;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --primary: #D4AF37;
+            --border: #E2E8F0;
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --accent-gradient: linear-gradient(135deg, #D4AF37 0%, #F1C40F 100%);
+            --neon: #008B8B; /* Darker Cyan for Light Mode */
         }
 
         body {
