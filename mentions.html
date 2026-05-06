@@ -4,10 +4,10 @@
     <link rel="icon" type="image/png" href="channels4_profile.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jayanjan Mukherjee - Cloud Developer & Web Builder">
-    <meta property="og:title" content="Jayanjan Mukherjee">
-    <meta property="og:description" content="Cloud Developer building things on AWS">
-    <title>Jayanjan Mukherjee</title>
+    <meta name="description" content="Jayanjan Mukherjee - Mentions">
+    <meta property="og:title" content="Mentions - Jayanjan Mukherjee">
+    <meta property="og:description" content="Mentions and features">
+    <title>Mentions - Jayanjan Mukherjee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -112,42 +112,6 @@
             51%, 100% { opacity: 0; }
         }
 
-        .hero p {
-            color: var(--muted);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .hero-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-links a {
-            font-size: 0.9rem;
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .profile img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-        }
-
-        .profile-info {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
         .section {
             padding: 3rem 2rem;
             max-width: 700px;
@@ -163,55 +127,8 @@
             padding-bottom: 0.5rem;
         }
 
-        .item {
-            margin-bottom: 1.5rem;
-        }
-
-        .item h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .item .date {
-            font-size: 0.75rem;
-            color: var(--muted);
-            margin-bottom: 0.4rem;
-        }
-
-        .item p {
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-weight: 300;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-
-        .link-item {
-            padding: 1rem;
-            background: var(--card);
-            border-radius: 6px;
-            text-align: center;
-            transition: background 0.2s;
-        }
-
-        .link-item:hover {
-            background: #252525;
-            text-decoration: none;
-        }
-
-        .link-item i {
-            font-size: 1.2rem;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        .link-item span {
-            font-size: 0.8rem;
+        .mention-item {
+            margin-bottom: 2rem;
         }
 
         footer {
@@ -230,8 +147,6 @@
             color: var(--accent);
         }
 
-        
-
         @media (max-width: 600px) {
             nav {
                 padding: 1rem;
@@ -245,99 +160,48 @@
             .section {
                 padding: 2rem 1rem;
             }
-            .hero-links {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#" class="nav-logo">jicoing</a>
+    <a href="index.html" class="nav-logo">jicoing</a>
     <div style="display: flex; align-items: center; gap: 1.5rem;">
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#stack">Stack</a>
-            <a href="#links">Links</a>
+            <a href="index.html">Home</a>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#stack">Stack</a>
+            <a href="index.html#links">Links</a>
         </div>
         <a href="#" onclick="toggleTheme(); return false;" style="color:var(--muted);font-size:0.85rem;">Light</a>
     </div>
 </nav>
 
-<section class="hero" id="about">
-    <div class="profile">
-        <img src="coverpic1.JPG" alt="Jayanjan">
-        <div class="profile-info">
-            Jayanjan Mukherjee<br>
-            Cloud Developer · Kolkata
-        </div>
-    </div>
-    <h1>Building things with <span>serverless</span><span class="cursor">|</span></h1>
-    <p>Hey there, I'm Jayanjan, an AWS certified developer with 10+ years in tech. I create web apps, serverless stuff, and memes.</p>
-    <div class="hero-links">
-        <a href="https://github.com/jicoing"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://x.com/jicoing"><i class="fab fa-twitter"></i> Twitter</a>
-        <a href="https://discord.gg/AYM4e9UUK"><i class="fab fa-discord"></i> Discord</a>
-    </div>
+<section class="hero">
+    <p><a href="index.html" style="color: var(--muted);">← Back to Home</a></p>
+    <h1>Mentions<span class="cursor">|</span></h1>
+    <p>Shoutouts, features, and kind words from the community.</p>
 </section>
 
-<section class="section" id="work">
-    <h2>Work Experience</h2>
+<section class="section">
+    <h2>Shoutouts</h2>
     
-    <div class="item">
-        <div class="date">2020 — Present</div>
-        <h3>Freelance · FullStack DevOps</h3>
-        <p>Building serverless apps, CI/CD pipelines, and cloud infrastructure for clients worldwide.</p>
+    <div class="mention-item">
+        <p style="font-style: italic; color: var(--muted); margin-bottom: 0.5rem;">"How does it feel to go from mainframe/DB2 support directly to serverless? Find out in this fascinating (and slightly horrifying) post from Cloud Resume Champion @jicoing."</p>
+        <p style="font-size: 0.85rem;">— <a href="https://twitter.com/forrestbrazeal" target="_blank">Forrest Brazeal</a>, AWS Serverless Hero · February 2021</p>
     </div>
 
-    <div class="item">
-        <div class="date">2014 — 2020</div>
-        <h3>Cognizant · Mainframe Specialist</h3>
-        <p>DB2 and mainframe support for enterprise clients.</p>
-    </div>
-
-    <p style="margin-top: 1rem;"><a href="mentions.html">Mentions →</a></p>
-</section>
-
-<section class="section" id="stack">
-    <h2>Stack</h2>
-    <p>AWS · Vercel · Next.js · React · Python · Node.js · Firebase · Supabase</p>
-</section>
-
-<section class="section" id="services">
-    <h2>Services</h2>
-    <p>Brand websites · Portfolio sites · Landing pages · Website revamps</p>
-    <p style="margin-top: 0.5rem;"><a href="projects.html">View Portfolio →</a></p>
-</section>
-
-<section class="section" id="links">
-    <h2>Links</h2>
-    <div class="links-grid">
-        <a href="https://github.com/jicoing" class="link-item">
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-        </a>
-        <a href="https://x.com/jicoing" class="link-item">
-            <i class="fab fa-twitter"></i>
-            <span>Twitter</span>
-        </a>
-        <a href="https://discord.gg/AYM4e9UUK" class="link-item">
-            <i class="fab fa-discord"></i>
-            <span>Discord</span>
-        </a>
-        </div>
 </section>
 
 <footer>
+    <a href="index.html">Home</a>
     <a href="https://github.com/jicoing">GitHub</a>
     <a href="https://x.com/jicoing">Twitter</a>
     <a href="https://discord.gg/AYM4e9UUK">Discord</a>
     <a href="https://dev.to/jicoing">Dev.to</a>
     <p style="margin-top: 1rem;">© 2025 Jayanjan Mukherjee</p>
 </footer>
-
 
 
 <script>
@@ -359,8 +223,6 @@ function loadTheme() {
     }
 }
 loadTheme();
-
-
 </script>
 
 </body>
